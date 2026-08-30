@@ -1,0 +1,553 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CoursWidget</class>
+ <widget class="QWidget" name="CoursWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1050</width>
+    <height>700</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Gestion des Cours</string>
+  </property>
+  <layout class="QVBoxLayout" name="coursMainLayout">
+   <property name="spacing">
+    <number>12</number>
+   </property>
+   <property name="leftMargin">
+    <number>20</number>
+   </property>
+   <property name="topMargin">
+    <number>15</number>
+   </property>
+   <property name="rightMargin">
+    <number>20</number>
+   </property>
+   <property name="bottomMargin">
+    <number>15</number>
+   </property>
+   <item>
+    <layout class="QHBoxLayout" name="coursTopLayout">
+     <property name="spacing">
+      <number>15</number>
+     </property>
+     <item>
+      <widget class="QGroupBox" name="gbCoursForm">
+       <property name="title">
+        <string>Formulaire Cours</string>
+       </property>
+       <layout class="QVBoxLayout" name="formCoursContainerLayout">
+        <item>
+         <layout class="QGridLayout" name="gridCoursForm">
+          <property name="spacing">
+           <number>8</number>
+          </property>
+          <item row="0" column="0">
+           <widget class="QLabel" name="lblCoursId">
+            <property name="text">
+             <string>ID :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLineEdit" name="txtCoursId">
+            <property name="readOnly">
+             <bool>true</bool>
+            </property>
+            <property name="placeholderText">
+             <string>Auto-généré par Oracle</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="lblNomC">
+            <property name="text">
+             <string>Nom * :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLineEdit" name="txtCoursNom"/>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="lblDescC">
+            <property name="text">
+             <string>Description :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLineEdit" name="txtCoursDescription"/>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="lblDateDebC">
+            <property name="text">
+             <string>Date Début * :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QDateEdit" name="dateCoursDebut">
+            <property name="displayFormat">
+             <string>dd/MM/yyyy</string>
+            </property>
+            <property name="calendarPopup">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <widget class="QLabel" name="lblDateFinC">
+            <property name="text">
+             <string>Date Fin * :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="QDateEdit" name="dateCoursFin">
+            <property name="displayFormat">
+             <string>dd/MM/yyyy</string>
+            </property>
+            <property name="calendarPopup">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="0">
+           <widget class="QLabel" name="lblDureeC">
+            <property name="text">
+             <string>Durée (heures) * :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="1">
+           <widget class="QSpinBox" name="spinCoursDuree">
+            <property name="minimum">
+             <number>1</number>
+            </property>
+            <property name="maximum">
+             <number>1000</number>
+            </property>
+            <property name="value">
+             <number>30</number>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="0">
+           <widget class="QLabel" name="lblCapaciteC">
+            <property name="text">
+             <string>Capacité * :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="1">
+           <widget class="QSpinBox" name="spinCoursCapacite">
+            <property name="minimum">
+             <number>1</number>
+            </property>
+            <property name="maximum">
+             <number>500</number>
+            </property>
+            <property name="value">
+             <number>20</number>
+            </property>
+           </widget>
+          </item>
+          <item row="7" column="0">
+           <widget class="QLabel" name="lblPrixC">
+            <property name="text">
+             <string>Prix (€) * :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="7" column="1">
+           <widget class="QDoubleSpinBox" name="doubleSpinCoursPrix">
+            <property name="minimum">
+             <double>0.000000000000000</double>
+            </property>
+            <property name="maximum">
+             <double>99999.990000000000000</double>
+            </property>
+            <property name="singleStep">
+             <double>10.000000000000000</double>
+            </property>
+            <property name="value">
+             <double>0.000000000000000</double>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="0">
+           <widget class="QLabel" name="lblStatutC">
+            <property name="text">
+             <string>Statut * :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="1">
+           <widget class="QComboBox" name="comboCoursStatut">
+            <item>
+             <property name="text">
+              <string>PLANIFIE</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>EN_COURS</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>TERMINE</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>ANNULE</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="coursBtnLayout">
+          <property name="topMargin">
+           <number>10</number>
+          </property>
+          <item>
+           <widget class="QPushButton" name="btnCoursAjouter">
+            <property name="text">
+             <string>➕ Ajouter</string>
+            </property>
+            <property name="class" stdset="0">
+             <string>btnPrimary</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnCoursModifier">
+            <property name="text">
+             <string>✏️ Modifier</string>
+            </property>
+            <property name="class" stdset="0">
+             <string>btnWarning</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnCoursSupprimer">
+            <property name="text">
+             <string>🗑️ Supprimer</string>
+            </property>
+            <property name="class" stdset="0">
+             <string>btnDanger</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnCoursVider">
+            <property name="text">
+             <string>🧹 Vider</string>
+            </property>
+            <property name="class" stdset="0">
+             <string>btnSecondary</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QGroupBox" name="gbCoursSearch">
+       <property name="title">
+        <string>Recherche Globale &amp; Tri Multicritère</string>
+       </property>
+       <layout class="QVBoxLayout" name="searchCoursContainerLayout">
+        <property name="spacing">
+         <number>6</number>
+        </property>
+        <item>
+         <widget class="QLineEdit" name="txtSearchCoursGlobal">
+          <property name="placeholderText">
+           <string>🔎 Rechercher un cours, description, date, statut...</string>
+          </property>
+          <property name="clearButtonEnabled">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="lblSearchCoursHint">
+          <property name="styleSheet">
+           <string>color: #94a3b8; font-size: 11px; font-style: italic; padding-left: 2px;</string>
+          </property>
+          <property name="text">
+           <string>Recherche globale : nom, description, dates, durée, capacité, prix, statut</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="lblTriCoursTitre">
+          <property name="styleSheet">
+           <string>color: #38bdf8; font-size: 11px; font-weight: bold; margin-top: 4px;</string>
+          </property>
+          <property name="text">
+           <string>↕ TRI MULTICRITÈRE (MINIMUM 3 CRITÈRES)</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QGridLayout" name="gridTriCours">
+          <property name="spacing">
+           <number>6</number>
+          </property>
+          <item row="0" column="0">
+           <widget class="QLabel" name="lblTriCours1">
+            <property name="text">
+             <string>Critère 1 :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QComboBox" name="comboTriCoursCrit1">
+            <item>
+             <property name="text">
+              <string>Date début</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Nom</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Date fin</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Durée</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Capacité</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Prix</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Statut</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="QComboBox" name="comboTriCoursOrdre1">
+            <item>
+             <property name="text">
+              <string>Croissant (Plus ancien → récent)</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Décroissant (Plus récent → ancien)</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="lblTriCours2">
+            <property name="text">
+             <string>Critère 2 :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QComboBox" name="comboTriCoursCrit2">
+            <item>
+             <property name="text">
+              <string>Prix</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Nom</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Date début</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Date fin</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Durée</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Capacité</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Statut</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="1" column="2">
+           <widget class="QComboBox" name="comboTriCoursOrdre2">
+            <item>
+             <property name="text">
+              <string>Croissant (0 → 9)</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Décroissant (9 → 0)</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="lblTriCours3">
+            <property name="text">
+             <string>Critère 3 :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QComboBox" name="comboTriCoursCrit3">
+            <item>
+             <property name="text">
+              <string>Capacité</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Nom</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Date début</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Date fin</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Durée</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Prix</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Statut</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="2" column="2">
+           <widget class="QComboBox" name="comboTriCoursOrdre3">
+            <item>
+             <property name="text">
+              <string>Croissant (0 → 9)</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Décroissant (9 → 0)</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="layoutBtnTriCours">
+          <item>
+           <widget class="QPushButton" name="btnCoursAppliquerTri">
+            <property name="text">
+             <string>↕ Appliquer le tri</string>
+            </property>
+            <property name="class" stdset="0">
+             <string>btnPrimary</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnCoursResetTri">
+            <property name="text">
+             <string>🔄 Réinitialiser</string>
+            </property>
+            <property name="class" stdset="0">
+             <string>btnSecondary</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="searchCoursSpacer">
+          <property name="orientation">
+           <enum>Qt::Orientation::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QTableView" name="tableCours">
+     <property name="editTriggers">
+      <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+     </property>
+     <property name="alternatingRowColors">
+      <bool>true</bool>
+     </property>
+     <property name="selectionMode">
+      <enum>QAbstractItemView::SelectionMode::SingleSelection</enum>
+     </property>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectionBehavior::SelectRows</enum>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

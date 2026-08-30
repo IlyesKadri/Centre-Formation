@@ -1,0 +1,596 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>StatistiquesWidget</class>
+ <widget class="QWidget" name="StatistiquesWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1100</width>
+    <height>750</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Statistiques et Analyses</string>
+  </property>
+  <layout class="QVBoxLayout" name="statistiquesMainLayout">
+   <property name="spacing">
+    <number>12</number>
+   </property>
+   <property name="leftMargin">
+    <number>20</number>
+   </property>
+   <property name="topMargin">
+    <number>15</number>
+   </property>
+   <property name="rightMargin">
+    <number>20</number>
+   </property>
+   <property name="bottomMargin">
+    <number>15</number>
+   </property>
+   <item>
+    <layout class="QHBoxLayout" name="statsTopLayout">
+     <item>
+      <widget class="QLabel" name="lblStatsInfo">
+       <property name="styleSheet">
+        <string notr="true">color: #94a3b8; font-size: 13px;</string>
+       </property>
+       <property name="text">
+        <string>Analyses statistiques dynamiques agrégées depuis la base Oracle CENTRE_FORMATION</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="statsHeaderSpacer">
+       <property name="orientation">
+        <enum>Qt::Orientation::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnStatsRafraichir">
+       <property name="text">
+        <string>🔄 Rafraîchir les Statistiques</string>
+       </property>
+       <property name="class" stdset="0">
+        <string>btnPrimary</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="kpiLayout">
+     <property name="spacing">
+      <number>12</number>
+     </property>
+     <item>
+      <widget class="QFrame" name="cardKpi1">
+       <property name="styleSheet">
+        <string notr="true">QFrame { background-color: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 6px; }</string>
+       </property>
+       <layout class="QVBoxLayout" name="card1Lay">
+        <item>
+         <widget class="QLabel" name="lblCard1Title">
+          <property name="styleSheet">
+           <string notr="true">color: #94a3b8; font-size: 11px; font-weight: bold;</string>
+          </property>
+          <property name="text">
+           <string>📈 TAUX D'OCCUPATION</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="lblKpiOccupation">
+          <property name="styleSheet">
+           <string notr="true">color: #38bdf8; font-size: 18px; font-weight: bold;</string>
+          </property>
+          <property name="text">
+           <string>0.0 %</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QFrame" name="cardKpi2">
+       <property name="styleSheet">
+        <string notr="true">QFrame { background-color: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 6px; }</string>
+       </property>
+       <layout class="QVBoxLayout" name="card2Lay">
+        <item>
+         <widget class="QLabel" name="lblCard2Title">
+          <property name="styleSheet">
+           <string notr="true">color: #94a3b8; font-size: 11px; font-weight: bold;</string>
+          </property>
+          <property name="text">
+           <string>⭐ MOYENNE DES NOTES</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="lblKpiNotes">
+          <property name="styleSheet">
+           <string notr="true">color: #34d399; font-size: 18px; font-weight: bold;</string>
+          </property>
+          <property name="text">
+           <string>0.0 / 20</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QFrame" name="cardKpi3">
+       <property name="styleSheet">
+        <string notr="true">QFrame { background-color: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 6px; }</string>
+       </property>
+       <layout class="QVBoxLayout" name="card3Lay">
+        <item>
+         <widget class="QLabel" name="lblCard3Title">
+          <property name="styleSheet">
+           <string notr="true">color: #94a3b8; font-size: 11px; font-weight: bold;</string>
+          </property>
+          <property name="text">
+           <string>🏆 FORMATION TOP 1</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="lblKpiTopFormation">
+          <property name="styleSheet">
+           <string notr="true">color: #fbbf24; font-size: 14px; font-weight: bold;</string>
+          </property>
+          <property name="text">
+           <string>-</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QFrame" name="cardKpi4">
+       <property name="styleSheet">
+        <string notr="true">QFrame { background-color: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 6px; }</string>
+       </property>
+       <layout class="QVBoxLayout" name="card4Lay">
+        <item>
+         <widget class="QLabel" name="lblCard4Title">
+          <property name="styleSheet">
+           <string notr="true">color: #94a3b8; font-size: 11px; font-weight: bold;</string>
+          </property>
+          <property name="text">
+           <string>🔥 COURS LE PLUS DEMANDÉ</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="lblKpiTopCours">
+          <property name="styleSheet">
+           <string notr="true">color: #f472b6; font-size: 14px; font-weight: bold;</string>
+          </property>
+          <property name="text">
+           <string>-</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="tabsLayout">
+     <property name="spacing">
+      <number>10</number>
+     </property>
+     <item>
+      <widget class="QPushButton" name="btnStatTabFormation">
+       <property name="text">
+        <string>🎓 Stagiaires par Formation</string>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnStatTabNiveau">
+       <property name="text">
+        <string>📊 Stagiaires par Niveau</string>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnStatTabInscCours">
+       <property name="text">
+        <string>📚 Inscriptions par Cours</string>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnStatTabStatuts">
+       <property name="text">
+        <string>🏷️ Répartition des Statuts</string>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="tabsSpacer">
+       <property name="orientation">
+        <enum>Qt::Orientation::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QStackedWidget" name="stackedStats">
+     <widget class="QWidget" name="pageStatsFormation">
+      <layout class="QHBoxLayout" name="layoutPageFormation">
+       <property name="spacing">
+        <number>15</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QFrame" name="frameFormationChart">
+         <property name="styleSheet">
+          <string notr="true">QFrame { background-color: #1e293b; border: 1px solid #334155; border-radius: 10px; }</string>
+         </property>
+         <layout class="QVBoxLayout" name="layFormationChart">
+          <property name="leftMargin">
+           <number>10</number>
+          </property>
+          <property name="topMargin">
+           <number>10</number>
+          </property>
+          <property name="rightMargin">
+           <number>10</number>
+          </property>
+          <property name="bottomMargin">
+           <number>10</number>
+          </property>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="frameFormationTable">
+         <property name="minimumSize">
+          <size>
+           <width>320</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>420</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QFrame { background-color: #1e293b; border: 1px solid #334155; border-radius: 10px; padding: 10px; }</string>
+         </property>
+         <layout class="QVBoxLayout" name="layFormationTable">
+          <item>
+           <widget class="QLabel" name="lblTitleFormTable">
+            <property name="styleSheet">
+             <string notr="true">color: #38bdf8; font-size: 13px; font-weight: bold; border: none;</string>
+            </property>
+            <property name="text">
+             <string>📋 Détails par Filière</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QTableView" name="tableStatsFormation">
+            <property name="editTriggers">
+             <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+            </property>
+            <property name="alternatingRowColors">
+             <bool>true</bool>
+            </property>
+            <property name="selectionBehavior">
+             <enum>QAbstractItemView::SelectionBehavior::SelectRows</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="pageStatsNiveau">
+      <layout class="QHBoxLayout" name="layoutPageNiveau">
+       <property name="spacing">
+        <number>15</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QFrame" name="frameNiveauChart">
+         <property name="styleSheet">
+          <string notr="true">QFrame { background-color: #1e293b; border: 1px solid #334155; border-radius: 10px; }</string>
+         </property>
+         <layout class="QVBoxLayout" name="layNiveauChart">
+          <property name="leftMargin">
+           <number>10</number>
+          </property>
+          <property name="topMargin">
+           <number>10</number>
+          </property>
+          <property name="rightMargin">
+           <number>10</number>
+          </property>
+          <property name="bottomMargin">
+           <number>10</number>
+          </property>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="frameNiveauTable">
+         <property name="minimumSize">
+          <size>
+           <width>320</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>420</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QFrame { background-color: #1e293b; border: 1px solid #334155; border-radius: 10px; padding: 10px; }</string>
+         </property>
+         <layout class="QVBoxLayout" name="layNiveauTable">
+          <item>
+           <widget class="QLabel" name="lblTitleNivTable">
+            <property name="styleSheet">
+             <string notr="true">color: #38bdf8; font-size: 13px; font-weight: bold; border: none;</string>
+            </property>
+            <property name="text">
+             <string>📋 Détails par Niveau</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QTableView" name="tableStatsNiveau">
+            <property name="editTriggers">
+             <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+            </property>
+            <property name="alternatingRowColors">
+             <bool>true</bool>
+            </property>
+            <property name="selectionBehavior">
+             <enum>QAbstractItemView::SelectionBehavior::SelectRows</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="pageStatsInscCours">
+      <layout class="QHBoxLayout" name="layoutPageInscCours">
+       <property name="spacing">
+        <number>15</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QFrame" name="frameInscCoursChart">
+         <property name="styleSheet">
+          <string notr="true">QFrame { background-color: #1e293b; border: 1px solid #334155; border-radius: 10px; }</string>
+         </property>
+         <layout class="QVBoxLayout" name="layInscCoursChart">
+          <property name="leftMargin">
+           <number>10</number>
+          </property>
+          <property name="topMargin">
+           <number>10</number>
+          </property>
+          <property name="rightMargin">
+           <number>10</number>
+          </property>
+          <property name="bottomMargin">
+           <number>10</number>
+          </property>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="frameInscCoursTable">
+         <property name="minimumSize">
+          <size>
+           <width>320</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>420</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QFrame { background-color: #1e293b; border: 1px solid #334155; border-radius: 10px; padding: 10px; }</string>
+         </property>
+         <layout class="QVBoxLayout" name="layInscCoursTable">
+          <item>
+           <widget class="QLabel" name="lblTitleInscTable">
+            <property name="styleSheet">
+             <string notr="true">color: #38bdf8; font-size: 13px; font-weight: bold; border: none;</string>
+            </property>
+            <property name="text">
+             <string>📋 Détails par Cours</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QTableView" name="tableStatsInscCours">
+            <property name="editTriggers">
+             <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+            </property>
+            <property name="alternatingRowColors">
+             <bool>true</bool>
+            </property>
+            <property name="selectionBehavior">
+             <enum>QAbstractItemView::SelectionBehavior::SelectRows</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="pageStatsStatuts">
+      <layout class="QHBoxLayout" name="layoutPageStatuts">
+       <property name="spacing">
+        <number>15</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QFrame" name="frameStatutsChart">
+         <property name="styleSheet">
+          <string notr="true">QFrame { background-color: #1e293b; border: 1px solid #334155; border-radius: 10px; }</string>
+         </property>
+         <layout class="QVBoxLayout" name="layStatutsChart">
+          <property name="leftMargin">
+           <number>10</number>
+          </property>
+          <property name="topMargin">
+           <number>10</number>
+          </property>
+          <property name="rightMargin">
+           <number>10</number>
+          </property>
+          <property name="bottomMargin">
+           <number>10</number>
+          </property>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="frameStatutsTable">
+         <property name="minimumSize">
+          <size>
+           <width>320</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>420</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QFrame { background-color: #1e293b; border: 1px solid #334155; border-radius: 10px; padding: 10px; }</string>
+         </property>
+         <layout class="QVBoxLayout" name="layStatutsTable">
+          <item>
+           <widget class="QLabel" name="lblTitleStatutTable">
+            <property name="styleSheet">
+             <string notr="true">color: #38bdf8; font-size: 13px; font-weight: bold; border: none;</string>
+            </property>
+            <property name="text">
+             <string>📋 Détails des Statuts</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QTableView" name="tableStatsStatuts">
+            <property name="editTriggers">
+             <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+            </property>
+            <property name="alternatingRowColors">
+             <bool>true</bool>
+            </property>
+            <property name="selectionBehavior">
+             <enum>QAbstractItemView::SelectionBehavior::SelectRows</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

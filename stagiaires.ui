@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>StagiairesWidget</class>
+ <widget class="QWidget" name="StagiairesWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1050</width>
+    <height>700</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Gestion des Stagiaires</string>
+  </property>
+  <layout class="QVBoxLayout" name="stagiairesMainLayout">
+   <property name="spacing">
+    <number>12</number>
+   </property>
+   <property name="leftMargin">
+    <number>20</number>
+   </property>
+   <property name="topMargin">
+    <number>15</number>
+   </property>
+   <property name="rightMargin">
+    <number>20</number>
+   </property>
+   <property name="bottomMargin">
+    <number>15</number>
+   </property>
+   <item>
+    <layout class="QHBoxLayout" name="stagiaireTopLayout">
+     <property name="spacing">
+      <number>15</number>
+     </property>
+     <item>
+      <widget class="QGroupBox" name="gbStagiaireForm">
+       <property name="title">
+        <string>Formulaire Stagiaire</string>
+       </property>
+       <layout class="QVBoxLayout" name="formContainerLayout">
+        <item>
+         <layout class="QGridLayout" name="gridStagiaireForm">
+          <property name="spacing">
+           <number>8</number>
+          </property>
+          <item row="0" column="0">
+           <widget class="QLabel" name="lblStagId">
+            <property name="text">
+             <string>ID :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLineEdit" name="txtStagiaireId">
+            <property name="readOnly">
+             <bool>true</bool>
+            </property>
+            <property name="placeholderText">
+             <string>Auto-généré par Oracle</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="lblStagNom">
+            <property name="text">
+             <string>Nom * :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLineEdit" name="txtStagiaireNom"/>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="lblStagPrenom">
+            <property name="text">
+             <string>Prénom * :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLineEdit" name="txtStagiairePrenom"/>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="lblStagEmail">
+            <property name="text">
+             <string>Email * :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QLineEdit" name="txtStagiaireEmail"/>
+          </item>
+          <item row="4" column="0">
+           <widget class="QLabel" name="lblStagTel">
+            <property name="text">
+             <string>Téléphone :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="QLineEdit" name="txtStagiaireTelephone"/>
+          </item>
+          <item row="5" column="0">
+           <widget class="QLabel" name="lblStagDate">
+            <property name="text">
+             <string>Date Naissance :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="1">
+           <widget class="QDateEdit" name="dateStagiaireNaissance">
+            <property name="displayFormat">
+             <string>dd/MM/yyyy</string>
+            </property>
+            <property name="calendarPopup">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="0">
+           <widget class="QLabel" name="lblStagNiveau">
+            <property name="text">
+             <string>Niveau * :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="1">
+           <widget class="QComboBox" name="comboStagiaireNiveau">
+            <item>
+             <property name="text">
+              <string>DEBUTANT</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>INTERMEDIAIRE</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>AVANCE</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="7" column="0">
+           <widget class="QLabel" name="lblStagForm">
+            <property name="text">
+             <string>Formation * :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="7" column="1">
+           <widget class="QLineEdit" name="txtStagiaireFormation"/>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="stagiaireBtnLayout">
+          <property name="topMargin">
+           <number>10</number>
+          </property>
+          <item>
+           <widget class="QPushButton" name="btnStagiaireAjouter">
+            <property name="text">
+             <string>➕ Ajouter</string>
+            </property>
+            <property name="class" stdset="0">
+             <string>btnPrimary</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnStagiaireModifier">
+            <property name="text">
+             <string>✏️ Modifier</string>
+            </property>
+            <property name="class" stdset="0">
+             <string>btnWarning</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnStagiaireSupprimer">
+            <property name="text">
+             <string>🗑️ Supprimer</string>
+            </property>
+            <property name="class" stdset="0">
+             <string>btnDanger</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnStagiaireVider">
+            <property name="text">
+             <string>🧹 Vider</string>
+            </property>
+            <property name="class" stdset="0">
+             <string>btnSecondary</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QGroupBox" name="gbStagiaireSearch">
+       <property name="title">
+        <string>Recherche Globale &amp; Tri Multicritère</string>
+       </property>
+       <layout class="QVBoxLayout" name="searchContainerLayout">
+        <property name="spacing">
+         <number>6</number>
+        </property>
+        <item>
+         <widget class="QLineEdit" name="txtSearchStagiaireGlobal">
+          <property name="placeholderText">
+           <string>🔎 Rechercher un stagiaire, email, téléphone, formation...</string>
+          </property>
+          <property name="clearButtonEnabled">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="lblSearchStagiaireHint">
+          <property name="styleSheet">
+           <string>color: #94a3b8; font-size: 11px; font-style: italic; padding-left: 2px;</string>
+          </property>
+          <property name="text">
+           <string>Recherche globale : nom, prénom, email, téléphone, formation, niveau</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="lblTriStagiaireTitre">
+          <property name="styleSheet">
+           <string>color: #38bdf8; font-size: 11px; font-weight: bold; margin-top: 4px;</string>
+          </property>
+          <property name="text">
+           <string>↕ TRI MULTICRITÈRE (MINIMUM 3 CRITÈRES)</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QGridLayout" name="gridTriStagiaire">
+          <property name="spacing">
+           <number>6</number>
+          </property>
+          <item row="0" column="0">
+           <widget class="QLabel" name="lblTriStag1">
+            <property name="text">
+             <string>Critère 1 :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QComboBox" name="comboTriStagiaireCrit1">
+            <item>
+             <property name="text">
+              <string>Nom</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Prénom</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Email</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Date de naissance</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Niveau</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Formation</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="QComboBox" name="comboTriStagiaireOrdre1">
+            <item>
+             <property name="text">
+              <string>Croissant (A → Z)</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Décroissant (Z → A)</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="lblTriStag2">
+            <property name="text">
+             <string>Critère 2 :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QComboBox" name="comboTriStagiaireCrit2">
+            <item>
+             <property name="text">
+              <string>Date de naissance</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Nom</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Prénom</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Email</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Niveau</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Formation</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="1" column="2">
+           <widget class="QComboBox" name="comboTriStagiaireOrdre2">
+            <item>
+             <property name="text">
+              <string>Croissant (Plus ancien → récent)</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Décroissant (Plus récent → ancien)</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="lblTriStag3">
+            <property name="text">
+             <string>Critère 3 :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QComboBox" name="comboTriStagiaireCrit3">
+            <item>
+             <property name="text">
+              <string>Niveau</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Nom</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Prénom</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Email</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Date de naissance</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Formation</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="2" column="2">
+           <widget class="QComboBox" name="comboTriStagiaireOrdre3">
+            <item>
+             <property name="text">
+              <string>Croissant (A → Z)</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Décroissant (Z → A)</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="layoutBtnTriStagiaire">
+          <item>
+           <widget class="QPushButton" name="btnStagiaireAppliquerTri">
+            <property name="text">
+             <string>↕ Appliquer le tri</string>
+            </property>
+            <property name="class" stdset="0">
+             <string>btnPrimary</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnStagiaireResetTri">
+            <property name="text">
+             <string>🔄 Réinitialiser</string>
+            </property>
+            <property name="class" stdset="0">
+             <string>btnSecondary</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="searchSpacer">
+          <property name="orientation">
+           <enum>Qt::Orientation::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QTableView" name="tableStagiaires">
+     <property name="editTriggers">
+      <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+     </property>
+     <property name="alternatingRowColors">
+      <bool>true</bool>
+     </property>
+     <property name="selectionMode">
+      <enum>QAbstractItemView::SelectionMode::SingleSelection</enum>
+     </property>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectionBehavior::SelectRows</enum>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

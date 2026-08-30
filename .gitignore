@@ -1,0 +1,19 @@
+# Build & release artifacts
+release/
+debug/
+build/
+Makefile*
+object_script.*
+*.o
+*.exe
+*.obj
+moc_*.cpp
+ui_*.h
+
+# Sensitive local configurations
+.env
+api_config.ini
+api_key.txt
+birdconfig.h
+*.key
+*.secret

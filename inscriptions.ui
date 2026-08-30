@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>InscriptionsWidget</class>
+ <widget class="QWidget" name="InscriptionsWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1100</width>
+    <height>700</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Gestion des Inscriptions</string>
+  </property>
+  <layout class="QVBoxLayout" name="inscriptionsMainLayout">
+   <property name="spacing">
+    <number>12</number>
+   </property>
+   <property name="leftMargin">
+    <number>20</number>
+   </property>
+   <property name="topMargin">
+    <number>15</number>
+   </property>
+   <property name="rightMargin">
+    <number>20</number>
+   </property>
+   <property name="bottomMargin">
+    <number>15</number>
+   </property>
+   <item>
+    <layout class="QHBoxLayout" name="inscriptionsTopLayout">
+     <property name="spacing">
+      <number>15</number>
+     </property>
+     <item>
+      <widget class="QGroupBox" name="gbInscForm">
+       <property name="title">
+        <string>Formulaire Inscription</string>
+       </property>
+       <layout class="QVBoxLayout" name="formInscContainerLayout">
+        <item>
+         <layout class="QGridLayout" name="gridInscForm">
+          <property name="spacing">
+           <number>8</number>
+          </property>
+          <item row="0" column="0">
+           <widget class="QLabel" name="lblInscId">
+            <property name="text">
+             <string>ID :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLineEdit" name="txtInscId">
+            <property name="readOnly">
+             <bool>true</bool>
+            </property>
+            <property name="placeholderText">
+             <string>Auto-généré par Oracle</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="lblInscStag">
+            <property name="text">
+             <string>Stagiaire * :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QComboBox" name="comboInscStagiaire"/>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="lblInscCours">
+            <property name="text">
+             <string>Cours * :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QComboBox" name="comboInscCours"/>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="lblInscDate">
+            <property name="text">
+             <string>Date Inscription * :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QDateEdit" name="dateInscDate">
+            <property name="displayFormat">
+             <string>dd/MM/yyyy</string>
+            </property>
+            <property name="calendarPopup">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <widget class="QLabel" name="lblInscStatut">
+            <property name="text">
+             <string>Statut * :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="QComboBox" name="comboInscStatut">
+            <item>
+             <property name="text">
+              <string>INSCRIT</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>TERMINE</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>ABANDONNE</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="5" column="0">
+           <widget class="QLabel" name="lblInscNote">
+            <property name="text">
+             <string>Note (0-20) * :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="1">
+           <widget class="QDoubleSpinBox" name="doubleSpinInscNote">
+            <property name="minimum">
+             <double>0.000000000000000</double>
+            </property>
+            <property name="maximum">
+             <double>20.000000000000000</double>
+            </property>
+            <property name="singleStep">
+             <double>0.250000000000000</double>
+            </property>
+            <property name="value">
+             <double>15.000000000000000</double>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="inscBtnLayout">
+          <property name="topMargin">
+           <number>10</number>
+          </property>
+          <item>
+           <widget class="QPushButton" name="btnInscAjouter">
+            <property name="text">
+             <string>➕ Inscrire</string>
+            </property>
+            <property name="class" stdset="0">
+             <string>btnPrimary</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnInscModifier">
+            <property name="text">
+             <string>✏️ Modifier</string>
+            </property>
+            <property name="class" stdset="0">
+             <string>btnWarning</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnInscSupprimer">
+            <property name="text">
+             <string>🗑️ Supprimer</string>
+            </property>
+            <property name="class" stdset="0">
+             <string>btnDanger</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnInscVider">
+            <property name="text">
+             <string>🧹 Vider</string>
+            </property>
+            <property name="class" stdset="0">
+             <string>btnSecondary</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="inscDocButtonsLayout">
+          <item>
+           <widget class="QPushButton" name="btnInscGenererPdf">
+            <property name="text">
+             <string>📄 Attestation PDF</string>
+            </property>
+            <property name="class" stdset="0">
+             <string>btnPrimary</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnInscRenvoyerEmail">
+            <property name="text">
+             <string>📧 Confirmation Email</string>
+            </property>
+            <property name="class" stdset="0">
+             <string>btnPrimary</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QGroupBox" name="gbInscSearch">
+       <property name="title">
+        <string>Recherche Globale &amp; Tri Multicritère</string>
+       </property>
+       <layout class="QVBoxLayout" name="searchInscContainerLayout">
+        <property name="spacing">
+         <number>6</number>
+        </property>
+        <item>
+         <widget class="QLineEdit" name="txtSearchInscGlobal">
+          <property name="placeholderText">
+           <string>🔎 Rechercher un stagiaire, un cours, un email, une référence...</string>
+          </property>
+          <property name="clearButtonEnabled">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="lblSearchInscHint">
+          <property name="styleSheet">
+           <string>color: #94a3b8; font-size: 11px; font-style: italic; padding-left: 2px;</string>
+          </property>
+          <property name="text">
+           <string>Recherche globale : nom, prénom, email, téléphone, cours ou référence</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="lblTriInscTitre">
+          <property name="styleSheet">
+           <string>color: #38bdf8; font-size: 11px; font-weight: bold; margin-top: 4px;</string>
+          </property>
+          <property name="text">
+           <string>↕ TRI MULTICRITÈRE (MINIMUM 3 CRITÈRES)</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QGridLayout" name="gridTriInsc">
+          <property name="spacing">
+           <number>6</number>
+          </property>
+          <item row="0" column="0">
+           <widget class="QLabel" name="lblTriInsc1">
+            <property name="text">
+             <string>Critère 1 :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QComboBox" name="comboTriInscCrit1">
+            <item>
+             <property name="text">
+              <string>Date inscription</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Stagiaire</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Cours</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Statut</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Note</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="QComboBox" name="comboTriInscOrdre1">
+            <item>
+             <property name="text">
+              <string>Décroissant (Plus récent → ancien)</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Croissant (Plus ancien → récent)</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="lblTriInsc2">
+            <property name="text">
+             <string>Critère 2 :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QComboBox" name="comboTriInscCrit2">
+            <item>
+             <property name="text">
+              <string>Note</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Stagiaire</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Cours</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Date inscription</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Statut</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="1" column="2">
+           <widget class="QComboBox" name="comboTriInscOrdre2">
+            <item>
+             <property name="text">
+              <string>Décroissant (20 → 0)</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Croissant (0 → 20)</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="lblTriInsc3">
+            <property name="text">
+             <string>Critère 3 :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QComboBox" name="comboTriInscCrit3">
+            <item>
+             <property name="text">
+              <string>Statut</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Stagiaire</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Cours</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Date inscription</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Note</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="2" column="2">
+           <widget class="QComboBox" name="comboTriInscOrdre3">
+            <item>
+             <property name="text">
+              <string>Croissant (A → Z)</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Décroissant (Z → A)</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="layoutBtnTriInsc">
+          <item>
+           <widget class="QPushButton" name="btnInscAppliquerTri">
+            <property name="text">
+             <string>↕ Appliquer le tri</string>
+            </property>
+            <property name="class" stdset="0">
+             <string>btnPrimary</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnInscResetTri">
+            <property name="text">
+             <string>🔄 Réinitialiser</string>
+            </property>
+            <property name="class" stdset="0">
+             <string>btnSecondary</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="searchInscSpacer">
+          <property name="orientation">
+           <enum>Qt::Orientation::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QTableView" name="tableInscriptions">
+     <property name="editTriggers">
+      <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+     </property>
+     <property name="alternatingRowColors">
+      <bool>true</bool>
+     </property>
+     <property name="selectionMode">
+      <enum>QAbstractItemView::SelectionMode::SingleSelection</enum>
+     </property>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectionBehavior::SelectRows</enum>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

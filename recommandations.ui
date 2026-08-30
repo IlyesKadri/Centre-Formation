@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>RecommandationWidget</class>
+ <widget class="QWidget" name="RecommandationWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1100</width>
+    <height>750</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Orientation &amp; Recommandations Intelligentes</string>
+  </property>
+  <layout class="QVBoxLayout" name="recomMainLayout">
+   <property name="spacing">
+    <number>15</number>
+   </property>
+   <property name="leftMargin">
+    <number>20</number>
+   </property>
+   <property name="topMargin">
+    <number>15</number>
+   </property>
+   <property name="rightMargin">
+    <number>20</number>
+   </property>
+   <property name="bottomMargin">
+    <number>15</number>
+   </property>
+   <item>
+    <layout class="QHBoxLayout" name="recomTopLayout">
+     <item>
+      <layout class="QVBoxLayout" name="titleLay">
+       <item>
+        <widget class="QLabel" name="lblRecomTitle">
+         <property name="styleSheet">
+          <string notr="true">color: #38bdf8; font-size: 16px; font-weight: bold;</string>
+         </property>
+         <property name="text">
+          <string>🤖 ORIENTATION &amp; RECOMMANDATIONS INTELLIGENTES DE FORMATIONS</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="lblRecomSubtitle">
+         <property name="styleSheet">
+          <string notr="true">color: #94a3b8; font-size: 12px;</string>
+         </property>
+         <property name="text">
+          <string>Analyse prédictive et pédagogique basée sur le profil réel Oracle et l'Intelligence Artificielle.</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <spacer name="recomHeaderSpacer">
+       <property name="orientation">
+        <enum>Qt::Orientation::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="recomBodyLayout">
+     <property name="spacing">
+      <number>20</number>
+     </property>
+     <item>
+      <widget class="QFrame" name="leftFrame">
+       <property name="minimumSize">
+        <size>
+         <width>380</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>420</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QFrame#leftFrame { background-color: #1e293b; border: 1px solid #334155; border-radius: 10px; }</string>
+       </property>
+       <layout class="QVBoxLayout" name="leftLay">
+        <property name="spacing">
+         <number>14</number>
+        </property>
+        <property name="leftMargin">
+         <number>18</number>
+        </property>
+        <property name="topMargin">
+         <number>18</number>
+        </property>
+        <property name="rightMargin">
+         <number>18</number>
+        </property>
+        <property name="bottomMargin">
+         <number>18</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="lblSelectTitle">
+          <property name="styleSheet">
+           <string notr="true">color: #f8fafc; font-size: 14px; font-weight: bold; border-bottom: 1px solid #334155; padding-bottom: 6px;</string>
+          </property>
+          <property name="text">
+           <string>👤 Sélection du Stagiaire à Orienter</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QComboBox" name="comboRecomStagiaire">
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QComboBox { background-color: #0f172a; color: #f8fafc; border: 1px solid #475569; border-radius: 6px; padding: 8px 12px; font-size: 13px; } QComboBox:focus { border: 1px solid #38bdf8; }</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QFrame" name="profileCard">
+          <property name="styleSheet">
+           <string notr="true">QFrame#profileCard { background-color: #0f172a; border: 1px solid #334155; border-radius: 8px; }</string>
+          </property>
+          <layout class="QVBoxLayout" name="profLay">
+           <property name="spacing">
+            <number>8</number>
+           </property>
+           <property name="leftMargin">
+            <number>14</number>
+           </property>
+           <property name="topMargin">
+            <number>12</number>
+           </property>
+           <property name="rightMargin">
+            <number>14</number>
+           </property>
+           <property name="bottomMargin">
+            <number>12</number>
+           </property>
+           <item>
+            <layout class="QHBoxLayout" name="rowNom">
+             <item>
+              <widget class="QLabel" name="lblLNom">
+               <property name="minimumSize">
+                <size>
+                 <width>130</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">color: #94a3b8; font-size: 12px; font-weight: bold;</string>
+               </property>
+               <property name="text">
+                <string>Nom Complet :</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="lblRecomNomVal">
+               <property name="styleSheet">
+                <string notr="true">color: #f8fafc; font-size: 12px; font-weight: bold;</string>
+               </property>
+               <property name="text">
+                <string>--</string>
+               </property>
+               <property name="wordWrap">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="rowFiliere">
+             <item>
+              <widget class="QLabel" name="lblLFiliere">
+               <property name="minimumSize">
+                <size>
+                 <width>130</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">color: #94a3b8; font-size: 12px; font-weight: bold;</string>
+               </property>
+               <property name="text">
+                <string>Filière Actuelle :</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="lblRecomFiliereVal">
+               <property name="styleSheet">
+                <string notr="true">color: #f8fafc; font-size: 12px; font-weight: bold;</string>
+               </property>
+               <property name="text">
+                <string>--</string>
+               </property>
+               <property name="wordWrap">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="rowNiveau">
+             <item>
+              <widget class="QLabel" name="lblLNiveau">
+               <property name="minimumSize">
+                <size>
+                 <width>130</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">color: #94a3b8; font-size: 12px; font-weight: bold;</string>
+               </property>
+               <property name="text">
+                <string>Niveau Étude :</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="lblRecomNiveauVal">
+               <property name="styleSheet">
+                <string notr="true">color: #f8fafc; font-size: 12px; font-weight: bold;</string>
+               </property>
+               <property name="text">
+                <string>--</string>
+               </property>
+               <property name="wordWrap">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="rowCours">
+             <item>
+              <widget class="QLabel" name="lblLCours">
+               <property name="minimumSize">
+                <size>
+                 <width>130</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">color: #94a3b8; font-size: 12px; font-weight: bold;</string>
+               </property>
+               <property name="text">
+                <string>Cours déjà suivis :</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="lblRecomCoursSuivisVal">
+               <property name="styleSheet">
+                <string notr="true">color: #38bdf8; font-size: 12px; font-weight: 500;</string>
+               </property>
+               <property name="text">
+                <string>--</string>
+               </property>
+               <property name="wordWrap">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnLancerRecommandation">
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton { background-color: #0284c7; color: #ffffff; border: 1px solid #38bdf8; border-radius: 8px; padding: 12px 18px; font-size: 14px; font-weight: bold; } QPushButton:hover { background-color: #0369a1; } QPushButton:disabled { background-color: #334155; color: #64748b; border: 1px solid #475569; }</string>
+          </property>
+          <property name="text">
+           <string>🤖 Analyser et Recommander</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="lblRecomStatusInfo">
+          <property name="styleSheet">
+           <string notr="true">color: #94a3b8; font-size: 11px; font-style: italic;</string>
+          </property>
+          <property name="text">
+           <string>Sélectionnez un stagiaire puis lancez l'analyse.</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignmentFlag::AlignCenter</set>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="leftSpacer">
+          <property name="orientation">
+           <enum>Qt::Orientation::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QFrame" name="rightFrame">
+       <property name="styleSheet">
+        <string notr="true">QFrame#rightFrame { background-color: #1e293b; border: 1px solid #334155; border-radius: 10px; }</string>
+       </property>
+       <layout class="QVBoxLayout" name="rightLay">
+        <property name="spacing">
+         <number>12</number>
+        </property>
+        <property name="leftMargin">
+         <number>18</number>
+        </property>
+        <property name="topMargin">
+         <number>18</number>
+        </property>
+        <property name="rightMargin">
+         <number>18</number>
+        </property>
+        <property name="bottomMargin">
+         <number>18</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="lblRecTitle">
+          <property name="styleSheet">
+           <string notr="true">color: #38bdf8; font-size: 15px; font-weight: bold;</string>
+          </property>
+          <property name="text">
+           <string>🎯 Formations Recommandées par l'Intelligence Artificielle</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="lblRecSub">
+          <property name="styleSheet">
+           <string notr="true">color: #94a3b8; font-size: 12px; border-bottom: 1px solid #334155; padding-bottom: 8px;</string>
+          </property>
+          <property name="text">
+           <string>Les propositions sont scorées selon le profil et STRICTEMENT vérifiées avec les cours disponibles dans Oracle.</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QScrollArea" name="scrollAreaRecom">
+          <property name="styleSheet">
+           <string notr="true">QScrollArea { background-color: transparent; border: none; }</string>
+          </property>
+          <property name="widgetResizable">
+           <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="recomResultsWidget">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>598</width>
+             <height>550</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: transparent;</string>
+           </property>
+           <layout class="QVBoxLayout" name="recomResultsContainerLayout">
+            <property name="spacing">
+             <number>12</number>
+            </property>
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>5</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>5</number>
+            </property>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
