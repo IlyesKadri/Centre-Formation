@@ -66,6 +66,7 @@ double StatistiquesService::getMoyenneNotes()
 {
     QSqlQuery q("SELECT NVL(AVG(NOTE), 0) FROM INSCRIPTION WHERE NOTE IS NOT NULL", Connection::instance()->getDatabase());
     if (q.exec() && q.next()) return q.value(0).toDouble();
+    qDebug() << "Erreur getMoyenneNotes Oracle :" << q.lastError().text();
     return 0.0;
 }
 
@@ -75,9 +76,14 @@ double StatistiquesService::getTauxOccupation()
     int totalCap = 0;
     if (qCap.exec() && qCap.next()) {
         totalCap = qCap.value(0).toInt();
+    } else {
+        qDebug() << "Erreur getTauxOccupation (capacite) Oracle :" << qCap.lastError().text();
     }
 
-    if (totalCap <= 0) return 0.0;
+    if (totalCap <= 0) {
+        qDebug() << "getTauxOccupation: capacite totale = 0 (aucun cours PLANIFIE/EN_COURS avec CAPACITE > 0 ?)";
+        return 0.0;
+    }
 
     QSqlQuery qInsc(
         "SELECT COUNT(*) FROM INSCRIPTION i "
@@ -88,6 +94,8 @@ double StatistiquesService::getTauxOccupation()
     int totalInsc = 0;
     if (qInsc.exec() && qInsc.next()) {
         totalInsc = qInsc.value(0).toInt();
+    } else {
+        qDebug() << "Erreur getTauxOccupation (inscriptions) Oracle :" << qInsc.lastError().text();
     }
 
     return (static_cast<double>(totalInsc) / static_cast<double>(totalCap)) * 100.0;
@@ -104,7 +112,12 @@ QString StatistiquesService::getFormationLaPlusDemandee()
         ") WHERE ROWNUM = 1",
         Connection::instance()->getDatabase()
     );
-    if (q.exec() && q.next()) return q.value(0).toString();
+    if (q.exec()) {
+        if (q.next()) return q.value(0).toString();
+        qDebug() << "getFormationLaPlusDemandee: aucune ligne retournee (table STAGIAIRE vide ?)";
+    } else {
+        qDebug() << "Erreur getFormationLaPlusDemandee Oracle :" << q.lastError().text();
+    }
     return "N/A";
 }
 
@@ -120,7 +133,12 @@ QString StatistiquesService::getCoursLePlusDemande()
         ") WHERE ROWNUM = 1",
         Connection::instance()->getDatabase()
     );
-    if (q.exec() && q.next()) return q.value(0).toString();
+    if (q.exec()) {
+        if (q.next()) return q.value(0).toString();
+        qDebug() << "getCoursLePlusDemande: aucune ligne retournee (table COURS vide ?)";
+    } else {
+        qDebug() << "Erreur getCoursLePlusDemande Oracle :" << q.lastError().text();
+    }
     return "N/A";
 }
 
